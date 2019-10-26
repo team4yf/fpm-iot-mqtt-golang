@@ -24,6 +24,7 @@ mqtt 服务器的 golang 版本
       -e EMQX_ALLOW_ANONYMOUS=false \
       -e EMQX_LISTENER__TCP__EXTERNAL=1883 \
       -e EMQX_LISTENER__TCP__EXTERNAL__ACCEPTORS=64 \
+      -e EMQX_LISTENER__TCP__EXTERNAL__MAX___CONNECTIONS=1024000 \
       -e EMQX_LOADED_PLUGINS="emqx_management,emqx_auth_username,emqx_recon,emqx_retainer,emqx_rule_engine,emqx_dashboard" \
       -p 18083:18083 -p 1883:1883 -p 8080:8080 \
       emqx/emqx:latest
