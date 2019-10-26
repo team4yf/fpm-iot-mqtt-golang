@@ -80,7 +80,11 @@ mqtt 服务器的 golang 版本
 
     `$ mqtt-benchmark --broker tcp://localhost:1883 --count 10 --size 100 --clients 500 --qos 2 --format text`
 
-    `$ mqtt-benchmark --broker tcp://localhost:1883 --username foo --password bar --count 1000 --size 1000 --clients 900 --qos 2 --format text`
+    - test mosca
+    `$ mqtt-benchmark --broker tcp://localhost:1884 --username admin --password 123123123 --count 20 --size 50 --clients 50 --qos 2 --format text --quiet`
+
+    - test emqx
+    `$ mqtt-benchmark --broker tcp://localhost:1883 --username foo --password bar --count 1000 --size 1000 --clients 900 --qos 2 --format text --quiet`
 
 - inovex/mqtt-stresser [github](https://github.com/inovex/mqtt-stresser)
 
