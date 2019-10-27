@@ -100,7 +100,7 @@ mqtt 服务器的 golang 版本
     `$ mqtt-benchmark --broker tcp://localhost:1884 --username foo --password bar --count 20 --size 50 --clients 50 --qos 2 --format text --quiet`
 
     - test emqx
-    `$ mqtt-benchmark --broker tcp://localhost:1883 --username foo --password bar --count 1000 --size 1000 --clients 900 --qos 2 --format text --quiet`
+    `$ mqtt-benchmark --broker tcp://localhost:1883 --username foo --password bar --count 100 --size 1000 --clients 2000 --qos 2 --format text --quiet`
 
     ```
     ========= TOTAL (1900) =========
@@ -113,6 +113,17 @@ mqtt 服务器的 golang 版本
     Msg time mean std (ms):      0.967
     Average Bandwidth (msg/sec): 8.441
     Total Bandwidth (msg/sec):   16038.289
+
+    ========= TOTAL (20000) =========
+    Total Ratio:                 1.000 (2000000/2000000)
+    Total Runtime (sec):         165.999
+    Average Runtime (sec):       100.311
+    Msg time min (ms):           0.183
+    Msg time max (ms):           2013.597
+    Msg time mean mean (ms):     459.941
+    Msg time mean std (ms):      199.541
+    Average Bandwidth (msg/sec): 1.128
+    Total Bandwidth (msg/sec):   22557.205
     ```
 
 - inovex/mqtt-stresser [github](https://github.com/inovex/mqtt-stresser)
@@ -120,3 +131,14 @@ mqtt 服务器的 golang 版本
     ```bash
     $ docker run inovex/mqtt-stresser -broker tcp://localhost:1883 -num-clients 100 -num-messages 10 -rampup-delay 1s -rampup-size 10 -global-timeout 180s -timeout 20s
     ```
+
+### Tcp Banchmark Tool
+
+- [dachad/tcpgoon](https://github.com/dachad/tcpgoon)
+
+  `$ tcpgoon run localhost 5001 -c 50000 -s 1 -t 100 -y`
+
+### Topics
+
+- (百万级别长连接，并发测试指南)[https://blog.51cto.com/youerning/2089930?lb]
+- (Linux之TCP/IP内核参数优化)[https://www.cnblogs.com/fczjuever/archive/2013/04/17/3026694.html]
