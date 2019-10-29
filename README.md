@@ -28,6 +28,10 @@ mqtt 服务器的 golang 版本
 
     Run the command `$ ulimit -n 2048` can fix the issue (Reset after reboot)
 
+    ```
+    $ echo "* - nofile 2100000" >> /etc/security/limits.conf
+    $ ulimit -a
+    ``` 
 
     - Conf : [https://github.com/emqx/emqx/blob/master/etc/emqx.conf](https://github.com/emqx/emqx/blob/master/etc/emqx.conf)
 
@@ -56,24 +60,24 @@ mqtt 服务器的 golang 版本
 
       - list usernames
       ```
-      curl -v --basic -u 7289cb89f9b54:MjkwMDA4NzAzNzI4NDc4NTE5NjMxNTMxNjE4ODYyMzY2NzC -H "Content-Type: application/json" \-k http://localhost:8080/api/v3/auth_username
+      curl -v --basic -u 7289cb89f9b54:MjkwMDQ4ODU0NTM5NTA3NjM1MzcyMjk1NDYyOTIwNTE5NjI -H "Content-Type: application/json" \-k http://localhost:8080/api/v3/auth_username
       ```
 
       - add username
       ```
-      curl -v --basic -u 7289cb89f9b54:MjkwMDA4NzAzNzI4NDc4NTE5NjMxNTMxNjE4ODYyMzY2NzC -H "Content-Type: application/json" -d \
+      curl -v --basic -u 7289cb89f9b54:MjkwMDQ4ODU0NTM5NTA3NjM1MzcyMjk1NDYyOTIwNTE5NjI -H "Content-Type: application/json" -d \
         '{"username":"foo", "password": "bar"}' \-k http://localhost:8080/api/v3/auth_username
       ```
 
       - get username
       ```
-      curl -v --basic -u 7289cb89f9b54:MjkwMDA4NzAzNzI4NDc4NTE5NjMxNTMxNjE4ODYyMzY2NzC -H "Content-Type: application/json" \-k http://localhost:8080/api/v3/auth_username/admin
+      curl -v --basic -u 7289cb89f9b54:MjkwMDQ4ODU0NTM5NTA3NjM1MzcyMjk1NDYyOTIwNTE5NjI -H "Content-Type: application/json" \-k http://localhost:8080/api/v3/auth_username/admin
       ```
 
     
       - pub a message
       ```
-      curl -v --basic -u 7289cb89f9b54:MjkwMDA4NzAzNzI4NDc4NTE5NjMxNTMxNjE4ODYyMzY2NzC -H "Content-Type: application/json" -d \
+      curl -v --basic -u 7289cb89f9b54:MjkwMDQ4ODU0NTM5NTA3NjM1MzcyMjk1NDYyOTIwNTE5NjI -H "Content-Type: application/json" -d \
         '{"qos":1, "retain": false, "topic":"world", "payload":"test" , "client_id": "C_1492145414740"}' \-k http://localhost:8080/api/v3/mqtt/publish
       ```
 
